@@ -3,38 +3,71 @@
 
 ### 说说自己的部署过程
 GHOST 1.3.0的目录结构和之前版本不是特别一样，我的博客是用GHOST-CLI部署的，所以大致的文件结构是这个样子：
-├── config.production.json
+
+├── config.production.json 
+
 ├── content
+
 ├── current
+
 ├── system
+
 └── versions
 
+
 网站运行则依赖current文件夹下的内容，他下面的目录结构是这样的：
+
 ├── content
+
 ├── core
+
 ├── Gruntfile.js
+
 ├── index.js
+
 ├── LICENSE
+
 ├── MigratorConfig.js
+
 ├── node_modules
+
 ├── package.json
+
 ├── PRIVACY.md
+
 ├── README.md
+
 └── yarn.lock
+
 你会发现和以前的目录结构不太一样：
+
 ├─buster
+
 ├─content
+
 ├─core
+
 ├─node_modules
+
 ├─config.example.js
+
 ├─config.js
+
 ├─Gruntfile.js
+
 ├─index.js
+
 ├─LICENSE
+
 ├─npm-shrinkwrap.json
+
 ├─package.json
+
 ├─PRIVACY.md
+
 └─README.md
+
+
 config.js不见了，实际上config.js变成了/current/core/server/config下的defaults.json文件。所以配置"storage": {  ...}的话就要在defaults.json里面配置了。
 首先吧qn-store的插件放在/current/core/server/adapters/storage目录下然后在qn-store下执行npm install就可以了。
 ```
